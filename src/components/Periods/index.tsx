@@ -1,0 +1,48 @@
+import covertDate from 'utils/format';
+
+import {
+  Card,
+  Container,
+  Title,
+  Text,
+  ContainerCard,
+  ContainerImg,
+} from './styles';
+
+import { IPeriods } from 'utils/types';
+
+const Periods = (props: { periods: IPeriods[] }) => {
+  return (
+    <>
+      <h1>Weather</h1>
+
+      <Container>
+        {props.periods.map((item) => {
+          if (item.isDaytime) {
+            return (
+              <Card key={item.number}>
+                <Title>
+                  {item.name} - {covertDate(item.startTime)}
+                </Title>
+                <ContainerCard>
+                  <img src={item.icon} alt={item.name} />
+                  <ContainerImg>
+                    <Text>
+                      {item.temperature} º{item.temperatureUnit}
+                    </Text>
+                    <Text>
+                      {item.windSpeed} ({item.windDirection})
+                    </Text>
+                    <Text>{item.shortForecast}</Text>
+                  </ContainerImg>
+                </ContainerCard>
+              </Card>
+            );
+          }
+        })}
+      </Container>
+    </>
+  );
+};
+
+export default Periods;

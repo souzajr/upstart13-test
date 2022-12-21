@@ -1,0 +1,8 @@
+{
+  "short_name": "upstart13",
+  "name": "upstart13",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
