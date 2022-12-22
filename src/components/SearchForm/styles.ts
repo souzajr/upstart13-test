@@ -9,5 +9,12 @@ export const Container = styled.div`
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 30%;
+
+  @media (min-width: 800px) {
+    width: 30%;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;

@@ -2,9 +2,17 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, 250px);
   grid-auto-rows: auto;
   grid-gap: 1rem;
+  margin: 10px;
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(auto-fill, 250px);
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
 `;
 
 export const ContainerCard = styled.div`
