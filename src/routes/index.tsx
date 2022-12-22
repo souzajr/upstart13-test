@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from 'page/home';
+import Home from 'pages/Home';
 
 function Paths() {
   return (

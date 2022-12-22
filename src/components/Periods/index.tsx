@@ -28,10 +28,10 @@ const Periods = (props: { periods: IPeriods[] }) => {
                   <img src={item.icon} alt={item.name} />
                   <ContainerImg>
                     <Text>
-                      {item.temperature} º{item.temperatureUnit}
+                      {item.temperature} {item.temperatureUnit}º
                     </Text>
                     <Text>
-                      {item.windSpeed} ({item.windDirection})
+                      Wind {item.windSpeed} ({item.windDirection})
                     </Text>
                     <Text>{item.shortForecast}</Text>
                   </ContainerImg>

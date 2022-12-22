@@ -14,10 +14,10 @@ const getGeocodingLocation = async (
 ) => {
   const geocodingLocationUrl = `${process.env.REACT_APP_GEOCODING_URL?.replace(
     'ADDRESS_LOCATION',
-    encodeURI(address)
+    encodeURI(address.trim())
   )
-    ?.replace('CITY_LOCATION', encodeURI(city))
-    ?.replace('STATE_LOCATION', encodeURI(state))}`;
+    ?.replace('CITY_LOCATION', encodeURI(city.trim()))
+    ?.replace('STATE_LOCATION', encodeURI(state.trim()))}`;
 
   const response = await useFetch<IGetGeocodingLocation>(
     geocodingLocationUrl,
@@ -58,6 +58,13 @@ export const getWeather = async (
     };
   }
 
+  if (!location.data?.result.addressMatches.length) {
+    return {
+      error: true,
+      data: 'Invalid address',
+    };
+  }
+
   const latitude = location.data?.result.addressMatches[0].coordinates.y || 0;
   const longitude = location.data?.result.addressMatches[0].coordinates.x || 0;
 
@@ -73,7 +80,7 @@ export const getWeather = async (
   if (forecast.data?.properties.forecast) {
     const periods = await getPeriod(forecast.data?.properties.forecast);
 
-    if (periods.data?.properties.periods) {
+    if (periods.data?.properties.periods.length) {
       return {
         error: false,
         data: periods.data.properties.periods,
