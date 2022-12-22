@@ -14,13 +14,13 @@ import { IPeriods } from 'utils/types';
 const Periods = (props: { periods: IPeriods[] }) => {
   return (
     <>
-      <h1>Weather</h1>
+      <h1 id="weather">Weather</h1>
 
-      <Container>
+      <Container id="container-cards">
         {props.periods.map((item) => {
           if (item.isDaytime) {
             return (
-              <Card key={item.number}>
+              <Card key={item.number} id={`card-${item.number}`}>
                 <Title>
                   {item.name} - {covertDate(item.startTime)}
                 </Title>
