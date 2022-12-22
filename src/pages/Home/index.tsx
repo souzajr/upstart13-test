@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
+import SearchForm from 'components/SearchForm';
 import Periods from 'components/Periods';
 import Loading from 'components/Loading';
 
 import { getWeather } from 'utils/getWeather';
 import { IPeriods } from 'utils/types';
-import SearchForm from 'components/SearchForm';
 
 const Home = () => {
   const [loading, setLoading] = useState(false);
