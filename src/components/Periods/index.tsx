@@ -18,27 +18,25 @@ const Periods = (props: { periods: IPeriods[] }) => {
 
       <Container id="container-cards">
         {props.periods.map((item) => {
-          if (item.isDaytime) {
-            return (
-              <Card key={item.number} id={`card-${item.number}`}>
-                <Title>
-                  {item.name} - {covertDate(item.startTime)}
-                </Title>
-                <ContainerCard>
-                  <img src={item.icon} alt={item.name} />
-                  <ContainerImg>
-                    <Text>
-                      {item.temperature} {item.temperatureUnit}º
-                    </Text>
-                    <Text>
-                      Wind {item.windSpeed} ({item.windDirection})
-                    </Text>
-                    <Text>{item.shortForecast}</Text>
-                  </ContainerImg>
-                </ContainerCard>
-              </Card>
-            );
-          }
+          return (
+            <Card key={item.number} id={`card-${item.number}`}>
+              <Title>
+                {item.name} - {covertDate(item.startTime)}
+              </Title>
+              <ContainerCard>
+                <img src={item.icon} alt={item.name} />
+                <ContainerImg>
+                  <Text>
+                    {item.temperature} {item.temperatureUnit}º
+                  </Text>
+                  <Text>
+                    Wind {item.windSpeed} ({item.windDirection})
+                  </Text>
+                  <Text>{item.shortForecast}</Text>
+                </ContainerImg>
+              </ContainerCard>
+            </Card>
+          );
         })}
       </Container>
     </>

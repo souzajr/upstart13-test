@@ -63,24 +63,24 @@ describe('test weather result', () => {
   });
 
   it('should card 1 exist', () => {
-    cy.get('#card-2').should('be.visible');
+    cy.get('#card-1').should('be.visible');
   });
   it('should card 2 exist', () => {
-    cy.get('#card-4').should('be.visible');
+    cy.get('#card-3').should('be.visible');
   });
   it('should card 3 exist', () => {
-    cy.get('#card-6').should('be.visible');
+    cy.get('#card-5').should('be.visible');
   });
   it('should card 4 exist', () => {
-    cy.get('#card-8').should('be.visible');
+    cy.get('#card-7').should('be.visible');
   });
   it('should card 5 exist', () => {
-    cy.get('#card-10').should('be.visible');
+    cy.get('#card-9').should('be.visible');
   });
   it('should card 6 exist', () => {
-    cy.get('#card-12').should('be.visible');
+    cy.get('#card-11').should('be.visible');
   });
   it('should card 7 exist', () => {
-    cy.get('#card-14').should('be.visible');
+    cy.get('#card-13').should('be.visible');
   });
 });

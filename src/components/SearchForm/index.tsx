@@ -6,13 +6,14 @@ import Button from 'components/Button';
 import { Container, Form } from './styles';
 
 interface SearchFormProps {
-  onSubmit: (address: string, city: string, state: string) => void;
+  onSubmit: (address: string, city: string, state: string, day: number) => void;
 }
 
 const SearchForm = ({ onSubmit }: SearchFormProps) => {
   const [address, setAddress] = useState('');
   const [state, setState] = useState('');
   const [city, setCity] = useState('');
+  const [day, setDay] = useState('');
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +22,7 @@ const SearchForm = ({ onSubmit }: SearchFormProps) => {
       return;
     }
 
-    onSubmit(address, city, state);
+    onSubmit(address, city, state, +day);
   };
 
   return (
@@ -46,6 +47,14 @@ const SearchForm = ({ onSubmit }: SearchFormProps) => {
           value={state}
           onChange={(e) => setState(e)}
           placeholder="Type your state"
+          required
+        />
+        <Input
+          name="Days"
+          type="number"
+          value={day}
+          onChange={(e) => setDay(e)}
+          placeholder="Type days"
           required
         />
         <Button>Search</Button>

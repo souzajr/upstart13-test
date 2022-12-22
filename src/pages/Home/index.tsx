@@ -11,7 +11,12 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [periods, setPeriods] = useState<IPeriods[]>([]);
 
-  const handleSearch = async (address: string, city: string, state: string) => {
+  const handleSearch = async (
+    address: string,
+    city: string,
+    state: string,
+    day: number
+  ) => {
     setLoading(true);
 
     const weather = await getWeather(address, city, state);
@@ -22,7 +27,9 @@ const Home = () => {
       return alert(weather.data);
     }
 
-    setPeriods(weather.data as IPeriods[]);
+    const fixedArray = weather.data.slice(0, day * 2);
+
+    setPeriods(fixedArray as IPeriods[]);
   };
 
   return (

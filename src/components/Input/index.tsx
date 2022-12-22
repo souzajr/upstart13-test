@@ -6,6 +6,7 @@ interface InputProps {
   onChange: (e: string) => void;
   placeholder: string;
   required?: boolean;
+  type?: 'text' | 'number';
 }
 
 const Input = ({
@@ -14,13 +15,16 @@ const Input = ({
   onChange,
   placeholder,
   required = true,
+  type = 'text',
 }: InputProps) => {
   return (
     <>
       <Label htmlFor={name}>{name}</Label>
       <CustomInput
         id={name}
-        type="text"
+        type={type}
+        min={1}
+        max={7}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
